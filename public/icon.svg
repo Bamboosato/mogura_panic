@@ -1,22 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
+    <!-- 明るい爽やかな緑系グラデーション（上部の清々しいミントホワイトから鮮やかな芝生グリーンへ） -->
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#1e293b"/>
-      <stop offset="100%" stopColor="#090d16"/>
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="35%" stop-color="#d1fae5"/>
+      <stop offset="70%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
     </linearGradient>
+
+    <!-- 背景のふんわりとした太陽の光・ホワイトグロー -->
+    <radialGradient id="sun-glow" cx="50%" cy="25%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- モグラ本体（明るく温かみのあるチェスナットブラウン） -->
     <linearGradient id="mole-body" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stopColor="#d97706"/>
-      <stop offset="100%" stopColor="#92400e"/>
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="25%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+
+    <!-- 穴の立体リム -->
+    <linearGradient id="hole-rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#451a03"/>
     </linearGradient>
   </defs>
 
-  <!-- アイコン背景（リッチなダークスレート ＆ ゴールド外枠） -->
+  <!-- アイコン背景（明るいクリーングリーン ＆ ホワイトサンライト） -->
   <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="#f59e0b" stroke-width="8" opacity="0.6"/>
+  <rect width="512" height="512" rx="112" fill="url(#sun-glow)"/>
 
-  <!-- 地面の穴（奥の暗がり） -->
-  <ellipse cx="256" cy="420" rx="190" ry="55" fill="#020617"/>
-  <ellipse cx="256" cy="420" rx="205" ry="65" fill="none" stroke="#451a03" stroke-width="14"/>
+  <!-- やさしいゴールドのアクセント外枠ライン -->
+  <rect x="14" y="14" width="484" height="484" rx="98" fill="none" stroke="#facc15" stroke-width="7" opacity="0.75"/>
+  <rect x="19" y="19" width="474" height="474" rx="93" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.8"/>
+
+  <!-- 地面の穴（奥の影 ＆ 木製リム） -->
+  <ellipse cx="256" cy="420" rx="190" ry="55" fill="#291404"/>
+  <ellipse cx="256" cy="420" rx="205" ry="65" fill="none" stroke="url(#hole-rim)" stroke-width="14"/>
 
   <!-- 左耳 -->
   <circle cx="140" cy="190" r="48" fill="#78350f"/>
@@ -28,41 +51,44 @@
 
   <!-- モグラ本体（丸い頭部） -->
   <path d="M 125 425 C 125 155, 387 155, 387 425 Z" fill="url(#mole-body)" stroke="#78350f" stroke-width="16" stroke-linejoin="round"/>
-  <!-- 光沢ハイライト -->
-  <path d="M 160 380 C 150 200, 260 180, 260 180 C 180 210, 170 320, 160 380 Z" fill="#ffffff" opacity="0.15"/>
+  <!-- お顔の光沢ハイライト -->
+  <path d="M 160 380 C 150 200, 260 180, 260 180 C 180 210, 170 320, 160 380 Z" fill="#ffffff" opacity="0.22"/>
 
   <!-- ほっぺ（ピンクの血色感） -->
-  <ellipse cx="175" cy="330" rx="28" ry="18" fill="#f43f5e" opacity="0.65"/>
-  <ellipse cx="337" cy="330" rx="28" ry="18" fill="#f43f5e" opacity="0.65"/>
+  <ellipse cx="175" cy="330" rx="28" ry="18" fill="#f43f5e" opacity="0.75"/>
+  <ellipse cx="337" cy="330" rx="28" ry="18" fill="#f43f5e" opacity="0.75"/>
 
   <!-- 左目（白目・黒目・ハイライト） -->
-  <ellipse cx="205" cy="270" rx="26" ry="34" fill="#ffffff" stroke="#0f172a" stroke-width="8"/>
-  <circle cx="212" cy="270" r="16" fill="#0f172a"/>
+  <ellipse cx="205" cy="270" rx="26" ry="34" fill="#ffffff" stroke="#1c1917" stroke-width="8"/>
+  <circle cx="212" cy="270" r="16" fill="#1c1917"/>
   <circle cx="204" cy="260" r="7" fill="#ffffff"/>
 
   <!-- 右目（白目・黒目・ハイライト） -->
-  <ellipse cx="307" cy="270" rx="26" ry="34" fill="#ffffff" stroke="#0f172a" stroke-width="8"/>
-  <circle cx="300" cy="270" r="16" fill="#0f172a"/>
+  <ellipse cx="307" cy="270" rx="26" ry="34" fill="#ffffff" stroke="#1c1917" stroke-width="8"/>
+  <circle cx="300" cy="270" r="16" fill="#1c1917"/>
   <circle cx="292" cy="260" r="7" fill="#ffffff"/>
 
   <!-- 赤い大きなツヤツヤ鼻 -->
   <ellipse cx="256" cy="320" rx="42" ry="28" fill="#e11d48"/>
-  <ellipse cx="242" cy="310" rx="14" ry="8" fill="#ffffff" opacity="0.85"/>
+  <ellipse cx="242" cy="310" rx="14" ry="8" fill="#ffffff" opacity="0.9"/>
 
   <!-- トレードマークの白い前歯 -->
   <rect x="238" y="348" width="36" height="32" rx="6" fill="#ffffff" stroke="#78350f" stroke-width="6"/>
   <line x1="256" y1="348" x2="256" y2="380" stroke="#78350f" stroke-width="5"/>
 
   <!-- 手前の穴の木製リム台座 -->
-  <rect x="46" y="415" width="420" height="28" rx="10" fill="#451a03" stroke="#78350f" stroke-width="8"/>
-  <line x1="60" y1="422" x2="452" y2="422" stroke="#92400e" stroke-width="4"/>
+  <rect x="46" y="415" width="420" height="28" rx="10" fill="#582404" stroke="#78350f" stroke-width="8"/>
+  <line x1="60" y1="422" x2="452" y2="422" stroke="#a16207" stroke-width="4"/>
 
-  <!-- 草原の小さな草花装飾 -->
-  <path d="M 40 435 Q 26 405, 30 390 Q 42 410, 44 435" fill="#4ade80"/>
-  <circle cx="36" cy="395" r="9" fill="#f43f5e"/>
-  <circle cx="36" cy="395" r="4" fill="#fef08a"/>
+  <!-- 草原の小さな草花装飾（左側） -->
+  <path d="M 40 435 Q 26 405, 30 390 Q 42 410, 44 435" fill="#15803d"/>
+  <path d="M 50 438 Q 44 415, 52 400 Q 56 418, 54 438" fill="#22c55e"/>
+  <circle cx="34" cy="392" r="9" fill="#f43f5e"/>
+  <circle cx="34" cy="392" r="4" fill="#fef08a"/>
 
-  <path d="M 472 435 Q 486 405, 482 390 Q 470 410, 468 435" fill="#4ade80"/>
-  <circle cx="476" cy="395" r="9" fill="#38bdf8"/>
-  <circle cx="476" cy="395" r="4" fill="#fef08a"/>
+  <!-- 草原の小さな草花装飾（右側） -->
+  <path d="M 472 435 Q 486 405, 482 390 Q 470 410, 468 435" fill="#15803d"/>
+  <path d="M 462 438 Q 468 415, 460 400 Q 456 418, 458 438" fill="#22c55e"/>
+  <circle cx="478" cy="392" r="9" fill="#38bdf8"/>
+  <circle cx="478" cy="392" r="4" fill="#fef08a"/>
 </svg>

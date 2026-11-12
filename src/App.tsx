@@ -37,9 +37,9 @@ export const App: React.FC = () => {
   } = useGameEngine();
 
   return (
-    <div className="relative w-full min-h-screen bg-slate-950 select-none font-ud text-white flex items-center justify-center overflow-y-auto">
-      {/* アーケード筐体コンテナ（盤面サイズをしっかり確保し、必要に応じてスクロール可） */}
-      <div className="w-full max-w-md sm:max-w-lg min-h-screen flex flex-col justify-between p-2 sm:p-3 box-border">
+    <div className="relative w-full min-h-screen min-h-[100dvh] bg-slate-950 select-none font-ud text-white flex items-center justify-center overflow-y-auto">
+      {/* アーケード筐体コンテナ（iOS等のセーフエリアに確実に対応） */}
+      <div className="w-full max-w-md sm:max-w-lg app-safe-container">
         {/* ヘッダー (約10%) */}
         <Header
           mode={mode}

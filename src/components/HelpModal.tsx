@@ -9,7 +9,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm animate-pop-in font-ud">
+    <div className="fixed inset-0 z-50 flex items-center justify-center modal-safe-container bg-slate-950/85 backdrop-blur-sm animate-pop-in font-ud">
       <div className="w-full max-w-md bg-slate-900 border-2 border-slate-700 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-4 text-slate-200 max-h-[85vh] overflow-y-auto">
         <div className="flex items-center justify-between border-b border-slate-800 pb-2">
           <h2 className="text-2xl font-black text-amber-300">📖 遊び方ガイド</h2>

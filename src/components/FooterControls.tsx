@@ -31,7 +31,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
               <button
                 type="button"
                 onClick={() => onChangeMode('classic')}
-                className={`flex-1 py-1.5 text-base sm:text-lg font-black rounded-xl transition-all cursor-pointer ${
+                className={`flex-1 py-2 text-base sm:text-lg font-black rounded-xl transition-all cursor-pointer touch-manipulation ${
                   mode === 'classic'
                     ? 'bg-amber-500 text-slate-950 shadow-md'
                     : 'text-slate-400 hover:text-slate-200'
@@ -42,7 +42,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
               <button
                 type="button"
                 onClick={() => onChangeMode('brain')}
-                className={`flex-1 py-1.5 text-base sm:text-lg font-black rounded-xl transition-all cursor-pointer ${
+                className={`flex-1 py-2 text-base sm:text-lg font-black rounded-xl transition-all cursor-pointer touch-manipulation ${
                   mode === 'brain'
                     ? 'bg-purple-600 text-white shadow-md'
                     : 'text-slate-400 hover:text-slate-200'
@@ -58,7 +58,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
                 type="button"
                 onClick={() => onChangeSpeed('slow')}
                 aria-label="ゆっくり速度"
-                className={`flex-1 py-1 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer ${
+                className={`flex-1 py-1.5 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer touch-manipulation ${
                   speed === 'slow'
                     ? 'bg-sky-500 text-white shadow-md shadow-sky-500/40 scale-102'
                     : 'text-slate-400 hover:text-slate-200 opacity-50 hover:opacity-100'
@@ -70,7 +70,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
                 type="button"
                 onClick={() => onChangeSpeed('normal')}
                 aria-label="ふつう速度"
-                className={`flex-1 py-1 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer ${
+                className={`flex-1 py-1.5 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer touch-manipulation ${
                   speed === 'normal'
                     ? 'bg-sky-500 text-white shadow-md shadow-sky-500/40 scale-102'
                     : 'text-slate-400 hover:text-slate-200 opacity-50 hover:opacity-100'
@@ -82,7 +82,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
                 type="button"
                 onClick={() => onChangeSpeed('fast')}
                 aria-label="はやい速度"
-                className={`flex-1 py-1 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer ${
+                className={`flex-1 py-1.5 text-2xl sm:text-3xl rounded-xl transition-all flex items-center justify-center cursor-pointer touch-manipulation ${
                   speed === 'fast'
                     ? 'bg-sky-500 text-white shadow-md shadow-sky-500/40 scale-102'
                     : 'text-slate-400 hover:text-slate-200 opacity-50 hover:opacity-100'
@@ -97,7 +97,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
           <button
             type="button"
             onClick={onStart}
-            className="w-full py-3 sm:py-3.5 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 active:scale-98 text-slate-950 font-black text-xl sm:text-2xl rounded-2xl border-2 border-yellow-200 shadow-[0_4px_16px_rgba(250,204,21,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3.5 sm:py-4 bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 active:scale-98 text-slate-950 font-black text-xl sm:text-2xl rounded-2xl border-2 border-yellow-200 shadow-[0_4px_16px_rgba(250,204,21,0.5)] transition-all flex items-center justify-center gap-2 cursor-pointer touch-manipulation"
           >
             <span>🕹️</span>
             <span>スタート！</span>
@@ -109,7 +109,7 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
           <button
             type="button"
             onClick={onStop}
-            className="w-full py-2.5 sm:py-3 bg-slate-800/80 hover:bg-slate-700 active:scale-98 text-slate-300 hover:text-white font-bold text-lg rounded-2xl border border-slate-700 transition-all cursor-pointer text-center"
+            className="w-full py-3 sm:py-3.5 bg-slate-800/80 hover:bg-slate-700 active:scale-98 text-slate-300 hover:text-white font-bold text-lg rounded-2xl border border-slate-700 transition-all cursor-pointer text-center touch-manipulation"
           >
             ⏹️ やめる
           </button>

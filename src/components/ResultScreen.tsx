@@ -54,7 +54,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   }, [isRanked]);
 
   return (
-    <div className="fixed inset-0 z-40 flex flex-col items-center justify-between p-4 sm:p-6 bg-slate-950/95 backdrop-blur-md overflow-hidden font-ud">
+    <div className="fixed inset-0 z-40 flex flex-col items-center justify-between modal-safe-container bg-slate-950/95 backdrop-blur-md overflow-hidden font-ud">
       {/* 上部スコア・順位バナー */}
       <div className="w-full max-w-lg flex flex-col items-center pt-2 sm:pt-4">
         <h2 className="text-2xl sm:text-3xl font-black text-amber-400 tracking-wider">
