@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+  --font-ud: 'BIZ UDPGothic', 'M PLUS Rounded 1c', 'Meiryo', 'Hiragino Maru Gothic ProN', sans-serif;
+  --font-digital: 'Share Tech Mono', 'BIZ UDPGothic', 'Consolas', monospace;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  background-color: #090d16;
+  color: #f8fafc;
+  font-family: var(--font-ud);
+  font-size: 16px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.font-ud {
+  font-family: var(--font-ud);
+}
+
+.font-digital {
+  font-family: var(--font-digital);
+}
+
+.app-safe-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: max(0.5rem, var(--sat));
+  padding-bottom: max(0.5rem, var(--sab));
+  padding-left: max(0.75rem, var(--sal));
+  padding-right: max(0.75rem, var(--sar));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* ポップアップや打撃時のキーフレーム */
+@keyframes pop-in {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float-up {
+  0% { transform: translate(-50%, 0) scale(0.8); opacity: 0; }
+  30% { transform: translate(-50%, -15px) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -45px) scale(1); opacity: 0; }
+}
+
+@keyframes hammer-smash {
+  0% { transform: rotate(45deg) scale(0.9); }
+  40% { transform: rotate(-25deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(250, 204, 21, 0.95); }
+}
+
+.animate-pop-in {
+  animation: pop-in 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-float-up {
+  animation: float-up 0.8s ease-out forwards;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 1.5s infinite;
+}
+
+/* ジオラマアニメーション */
+@keyframes lookout-mole {
+  0%, 15% { transform: translateY(24px); }
+  22% { transform: translateY(0px) rotate(0deg); }
+  32% { transform: translateY(0px) rotate(-12deg); }
+  45% { transform: translateY(0px) rotate(12deg); }
+  58% { transform: translateY(0px) rotate(0deg); }
+  68% { transform: translateY(24px); }
+  100% { transform: translateY(24px); }
+}
+
+@keyframes minecart-roll {
+  0% { transform: translateX(-90px); }
+  100% { transform: translateX(470px); }
+}
+
+@keyframes cart-bounce {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1.5px); }
+}
+
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes butterfly-flutter {
+  0%, 100% { transform: translate(80px, 16px) scale(0.9); }
+  25% { transform: translate(140px, 8px) scale(1.05); }
+  50% { transform: translate(220px, 18px) scale(0.95); }
+  75% { transform: translate(160px, 24px) scale(1.1); }
+}
+
+@keyframes lamp-glow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 0.55; }
+}
+
+.animate-lookout-mole {
+  animation: lookout-mole 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-minecart-roll {
+  animation: minecart-roll 8s linear infinite;
+}
+
+.animate-cart-bounce {
+  animation: cart-bounce 0.25s ease-in-out infinite;
+}
+
+.animate-wheel-spin {
+  animation: wheel-spin 0.5s linear infinite;
+  transform-origin: center;
+}
+
+.animate-butterfly-flutter {
+  animation: butterfly-flutter 10s ease-in-out infinite;
+}
+
+.animate-lamp-glow {
+  animation: lamp-glow 1.4s ease-in-out infinite;
+}

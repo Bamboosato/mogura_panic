@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="100" fill="#0f172a"/>
+  <!-- 地面の穴 -->
+  <ellipse cx="256" cy="400" rx="190" ry="60" fill="#1e293b" stroke="#334155" stroke-width="12"/>
+  <ellipse cx="256" cy="400" rx="160" ry="40" fill="#020617"/>
+  
+  <!-- モグラ本体 -->
+  <path d="M140 400 C140 180, 372 180, 372 400 Z" fill="#92400e" stroke="#78350f" stroke-width="12"/>
+  
+  <!-- モグラの腹・口元 -->
+  <ellipse cx="256" cy="340" rx="75" ry="50" fill="#fef08a"/>
+  <ellipse cx="256" cy="305" rx="28" ry="18" fill="#e11d48"/>
+  <ellipse cx="248" cy="300" rx="8" ry="5" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- 目（パッチリ） -->
+  <ellipse cx="205" cy="245" rx="18" ry="24" fill="#ffffff" stroke="#1e293b" stroke-width="4"/>
+  <circle cx="210" cy="245" r="10" fill="#0f172a"/>
+  <circle cx="207" cy="240" r="4" fill="#ffffff"/>
+  
+  <ellipse cx="307" cy="245" rx="18" ry="24" fill="#ffffff" stroke="#1e293b" stroke-width="4"/>
+  <circle cx="302" cy="245" r="10" fill="#0f172a"/>
+  <circle cx="300" cy="240" r="4" fill="#ffffff"/>
+
+  <!-- ほっぺ -->
+  <ellipse cx="180" cy="310" rx="16" ry="10" fill="#f43f5e" opacity="0.6"/>
+  <ellipse cx="332" cy="310" rx="16" ry="10" fill="#f43f5e" opacity="0.6"/>
+
+  <!-- 前歯 -->
+  <rect x="246" y="323" width="20" height="18" rx="3" fill="#ffffff" stroke="#78350f" stroke-width="3"/>
+  <line x1="256" y1="323" x2="256" y2="341" stroke="#78350f" stroke-width="2"/>
+
+  <!-- 王冠飾り -->
+  <polygon points="216,160 236,190 256,150 276,190 296,160 296,205 216,205" fill="#facc15" stroke="#ca8a04" stroke-width="4"/>
+  <circle cx="216" cy="156" r="6" fill="#ef4444"/>
+  <circle cx="256" cy="146" r="7" fill="#3b82f6"/>
+  <circle cx="296" cy="156" r="6" fill="#10b981"/>
+</svg>
