@@ -10,6 +10,9 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      devOptions: {
+        enabled: true,
+      },
       includeAssets: [
         'favicon.svg',
         'favicon-48x48.png',
@@ -19,13 +22,18 @@ export default defineConfig({
         'pwa-512x512.png',
       ],
       manifest: {
+        id: '/',
         name: '元祖モグラパニック！',
         short_name: 'モグラパニック',
         description: '昭和・平成エレメカ × 脳トレ モグラ叩きゲーム',
-        theme_color: '#090d16',
-        background_color: '#090d16',
+        lang: 'ja',
+        start_url: '/',
+        scope: '/',
         display: 'standalone',
         orientation: 'portrait',
+        theme_color: '#090d16',
+        background_color: '#090d16',
+        categories: ['games', 'entertainment'],
         icons: [
           {
             src: '/pwa-192x192.png',
