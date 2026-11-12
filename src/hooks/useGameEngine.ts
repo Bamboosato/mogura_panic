@@ -66,6 +66,7 @@ export function useGameEngine() {
 
   // タイマー等の参照
   const moleTimersRef = useRef<Record<number, ReturnType<typeof setTimeout>>>({});
+  const popupTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const gameTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const spawnTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const nextRuleSwitchTimeRef = useRef<number>(30); // 脳トレモードの次のルール変更秒 (45 -> 30 -> 15)
@@ -77,7 +78,7 @@ export function useGameEngine() {
     statsRef.current = { score, maxCombo, hits, misses };
   }, [score, maxCombo, hits, misses]);
 
-  // 全てのモグラを穴に引っ込める
+  // 全てのモグラタイマーを確実に破棄して穴に引っ込める
   const clearAllMoles = useCallback(() => {
     Object.values(moleTimersRef.current).forEach((t) => clearTimeout(t));
     moleTimersRef.current = {};
@@ -88,6 +89,17 @@ export function useGameEngine() {
         isWhacked: false,
       }))
     );
+  }, []);
+
+  // アンマウント時のタイマークリーンアップを徹底
+  useEffect(() => {
+    return () => {
+      Object.values(moleTimersRef.current).forEach((t) => clearTimeout(t));
+      moleTimersRef.current = {};
+      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
+      if (gameTimerRef.current) clearInterval(gameTimerRef.current);
+      if (spawnTimerRef.current) clearInterval(spawnTimerRef.current);
+    };
   }, []);
 
   // サウンドのオンオフ切り替え
@@ -128,8 +140,14 @@ export function useGameEngine() {
         durationMs: 1500,
       });
 
+      // 既存のポップアップタイマーがあればクリア
+      if (popupTimerRef.current) {
+        clearTimeout(popupTimerRef.current);
+      }
+
       // 1.5秒後に自動消去＆再開
-      setTimeout(() => {
+      popupTimerRef.current = setTimeout(() => {
+        popupTimerRef.current = null;
         setPopup((prev) => ({ ...prev, isVisible: false }));
         setIsRuleSwitching(false);
         if (params.onComplete) {
@@ -149,6 +167,10 @@ export function useGameEngine() {
     setIsGameOver(true);
     clearAllMoles();
 
+    if (popupTimerRef.current) {
+      clearTimeout(popupTimerRef.current);
+      popupTimerRef.current = null;
+    }
     if (gameTimerRef.current) clearInterval(gameTimerRef.current);
     if (spawnTimerRef.current) clearInterval(spawnTimerRef.current);
 
@@ -211,6 +233,10 @@ export function useGameEngine() {
     setIsGameOver(false); // リザルト画面を確実に閉じる
     setRankingResult(null);
     clearAllMoles();
+    if (popupTimerRef.current) {
+      clearTimeout(popupTimerRef.current);
+      popupTimerRef.current = null;
+    }
     if (gameTimerRef.current) clearInterval(gameTimerRef.current);
     if (spawnTimerRef.current) clearInterval(spawnTimerRef.current);
 
@@ -315,6 +341,7 @@ export function useGameEngine() {
         clearTimeout(moleTimersRef.current[targetIndex]);
       }
       moleTimersRef.current[targetIndex] = setTimeout(() => {
+        delete moleTimersRef.current[targetIndex];
         setHoles((current) =>
           current.map((h, i) => {
             if (i === targetIndex && h.isActive && !h.isWhacked) {
@@ -448,6 +475,7 @@ export function useGameEngine() {
           clearTimeout(moleTimersRef.current[index]);
         }
         moleTimersRef.current[index] = setTimeout(() => {
+          delete moleTimersRef.current[index];
           setHoles((curr) =>
             curr.map((h, i) => (i === index ? { ...h, isActive: false, isWhacked: false } : h))
           );

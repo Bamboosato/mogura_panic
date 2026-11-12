@@ -62,6 +62,7 @@ export interface ScoreRecord {
   mode: GameMode;          // プレイしたモード
   speed: SpeedPreset;      // 速度設定
   playedAt: string;        // 表示用日時文字列 (例: "11/12 12:30")
+  timestamp?: number;      // ミリ秒エポック秒（厳密な一意判定・ソート用）
 }
 
 export interface RankingResult {

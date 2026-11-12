@@ -8,10 +8,11 @@ function deduplicateScores(list: ScoreRecord[]): ScoreRecord[] {
   const cleaned: ScoreRecord[] = [];
 
   for (const item of list) {
-    // スコア、達成日時、ヒット数、ミス数、モードが同一のものは1件にまとめる
-    const signature = `${item.score}_${item.playedAt}_${item.hits}_${item.misses}_${item.mode}`;
-    if (!seen.has(signature)) {
-      seen.add(signature);
+    // プレイごとの一意IDで重複排除（同一IDの二重書き込みを確実に防止）
+    // 古いレコード等の互換性のため、IDが無い場合はタイムスタンプやシグネチャをフォールバックとして利用
+    const key = item.id || `${item.score}_${item.timestamp ?? item.playedAt}_${item.hits}_${item.misses}_${item.mode}`;
+    if (!seen.has(key)) {
+      seen.add(key);
       cleaned.push(item);
     }
   }
@@ -52,7 +53,8 @@ export function saveAndEvaluateScore(params: {
   const minutes = String(now.getMinutes()).padStart(2, '0');
   const playedAt = `${month}/${day} ${hours}:${minutes}`;
 
-  const currentRunId = `run_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
+  const timestamp = Date.now();
+  const currentRunId = `run_${timestamp}_${Math.random().toString(36).slice(2, 7)}`;
 
   const currentRecord: ScoreRecord = {
     id: currentRunId,
@@ -63,6 +65,7 @@ export function saveAndEvaluateScore(params: {
     mode: params.mode,
     speed: params.speed,
     playedAt,
+    timestamp,
   };
 
   const existing = getTop10Scores();

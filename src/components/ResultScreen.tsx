@@ -103,7 +103,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
       <div className="w-full max-w-lg flex-1 my-3 bg-slate-900/90 border-2 border-slate-800 rounded-2xl p-3 sm:p-4 overflow-y-auto max-h-[42vh] shadow-inner">
         <h3 className="text-lg font-black text-slate-400 mb-2.5 flex items-center justify-between border-b border-slate-800 pb-1.5">
           <span>🏅 歴代トップ10 スコア履歴</span>
-          <span className="text-xs sm:text-sm text-slate-500 font-normal">上位10件を自動保存</span>
+          <span className="text-sm sm:text-base text-slate-400 font-normal">上位10件を自動保存</span>
         </h3>
 
         <div className="flex flex-col gap-2">
@@ -126,7 +126,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
                 <div className="flex items-center gap-2 min-w-[90px]">
                   <span className="font-black w-8 text-center">{medal}</span>
                   {isCurrent && (
-                    <span className="px-2 py-0.5 bg-yellow-400 text-slate-950 text-xs sm:text-sm font-black rounded-md whitespace-nowrap">
+                    <span className="px-2 py-0.5 bg-yellow-400 text-slate-950 text-sm sm:text-base font-black rounded-md whitespace-nowrap">
                       👉 今回
                     </span>
                   )}
@@ -137,11 +137,11 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
                   <span className="font-digital font-black text-2xl text-yellow-300">
                     {item.score}
                   </span>
-                  <span className="text-sm text-slate-400">点</span>
+                  <span className="text-base text-slate-300 font-bold">点</span>
                 </div>
 
                 {/* 達成日時 */}
-                <span className="text-xs sm:text-sm text-slate-400 font-mono">
+                <span className="text-sm sm:text-base text-slate-300 font-mono">
                   {item.playedAt}
                 </span>
               </div>

@@ -28,12 +28,12 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
       <div className="grid grid-cols-2 gap-2 sm:gap-3">
         {/* スコアパネル */}
         <div className="flex flex-col items-center justify-center py-1.5 px-2 rounded-2xl bg-slate-900/90 border-2 border-slate-700 shadow-md">
-          <span className="text-xs sm:text-sm font-bold text-slate-400">得点</span>
+          <span className="text-sm sm:text-base font-bold text-slate-300">得点</span>
           <div className="flex items-baseline gap-1">
             <span className="font-digital font-black text-3xl sm:text-4xl text-yellow-300 tracking-wider">
               {String(score).padStart(4, '0')}
             </span>
-            <span className="text-xs sm:text-sm font-bold text-slate-400">点</span>
+            <span className="text-sm sm:text-base font-bold text-slate-300">点</span>
           </div>
         </div>
 
@@ -45,10 +45,10 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
               : 'border-slate-700'
           }`}
         >
-          <div className="flex items-center gap-1">
-            <span className="text-xs sm:text-sm font-bold text-slate-400">残り時間</span>
+          <div className="flex items-center gap-1.5">
+            <span className="text-sm sm:text-base font-bold text-slate-300">残り時間</span>
             {combo > 1 && isPlaying && (
-              <span className="px-1.5 py-0.2 bg-amber-500 text-slate-950 font-black text-xs rounded-full">
+              <span className="px-2 py-0.5 bg-amber-500 text-slate-950 font-black text-xs sm:text-sm rounded-full">
                 {combo} 連続!
               </span>
             )}
@@ -61,7 +61,7 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
             >
               {String(Math.max(0, timeLeft)).padStart(2, '0')}
             </span>
-            <span className="text-xs sm:text-sm font-bold text-slate-400">秒</span>
+            <span className="text-sm sm:text-base font-bold text-slate-300">秒</span>
           </div>
         </div>
       </div>

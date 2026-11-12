@@ -59,11 +59,11 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
           <p className="text-base text-slate-200 leading-snug font-bold">
             画面上のお題に合うモグラだけを叩こう！
           </p>
-          <ul className="text-sm text-slate-300 space-y-1 font-bold pl-2">
+          <ul className="text-base text-slate-200 space-y-1 font-bold pl-2">
             <li>🎯 <b>数字のお題</b>: 【偶数】【奇数】【5以上】【4以下】など</li>
             <li>🎨 <b>色のお題</b>: 【青色】【黄色】【緑色】【ピンク】のモグラを指定！</li>
           </ul>
-          <p className="text-xs text-yellow-300 font-bold mt-1">
+          <p className="text-sm sm:text-base text-yellow-300 font-bold mt-1">
             ※ルール変更時は、画面中央に特大ポップアップ（約1.5秒間ポーズ）でお知らせします。
           </p>
         </div>
