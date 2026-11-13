@@ -23,7 +23,7 @@ export const ScoreBoard: React.FC<ScoreBoardProps> = ({
   const isTimeLow = timeLeft <= 5 && isPlaying;
 
   return (
-    <div className="w-full flex flex-col gap-1.5 sm:gap-2 my-1 shrink-0 select-none font-ud">
+    <div className="w-full flex flex-col gap-1.5 sm:gap-2 min-[900px]:gap-3 my-1 min-[900px]:my-0 shrink-0 select-none font-ud">
       {/* 上段：得点 ＆ 残り時間カウンター */}
       <div className="grid grid-cols-2 gap-2 sm:gap-3">
         {/* スコアパネル */}

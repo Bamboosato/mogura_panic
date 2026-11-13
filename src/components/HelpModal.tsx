@@ -10,7 +10,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center modal-safe-container bg-slate-950/85 backdrop-blur-sm animate-pop-in font-ud">
-      <div className="w-full max-w-md bg-slate-900 border-2 border-slate-700 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-4 text-slate-200 max-h-[85vh] overflow-y-auto">
+      <div className="w-full max-w-md min-[900px]:max-w-2xl bg-slate-900 border-2 border-slate-700 rounded-3xl p-5 sm:p-6 shadow-2xl flex flex-col gap-4 text-slate-200 max-h-[85vh] overflow-y-auto overscroll-contain">
         <div className="flex items-center justify-between border-b border-slate-800 pb-2">
           <h2 className="text-2xl font-black text-amber-300">📖 遊び方ガイド</h2>
           <button
@@ -26,7 +26,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
         <div className="flex flex-col gap-3">
           <h3 className="text-lg font-black text-cyan-300">① モグラの種類</h3>
 
-          <div className="grid grid-cols-2 gap-2 text-base">
+          <div className="grid grid-cols-2 min-[900px]:grid-cols-4 gap-2.5 text-base">
             <div className="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center text-center">
               <span className="text-3xl mb-1">🐻</span>
               <span className="font-black text-amber-300">ふつうのモグラ</span>
