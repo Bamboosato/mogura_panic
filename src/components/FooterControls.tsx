@@ -21,11 +21,11 @@ export const FooterControls: React.FC<FooterControlsProps> = ({
   onStop,
 }) => {
   return (
-    <footer className="w-full shrink-0 flex flex-col gap-1.5 sm:gap-2 font-ud select-none">
+    <footer className="w-full shrink-0 flex flex-col gap-1.5 sm:gap-2 min-[900px]:gap-3 font-ud select-none">
       {!isPlaying ? (
         <>
-          {/* モード選択 ＆ 速度選択（スタート前） */}
-          <div className="grid grid-cols-2 gap-2">
+          {/* モード選択 ＆ 速度選択（スタート前：スマホは横2列、PCサイドパネルでは縦積みで見やすく） */}
+          <div className="grid grid-cols-2 min-[900px]:grid-cols-1 gap-2 min-[900px]:gap-3">
             {/* モード切り替えトグル */}
             <div className="flex bg-slate-900/90 rounded-2xl p-1 border-2 border-slate-700">
               <button

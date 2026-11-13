@@ -38,9 +38,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="relative w-full min-h-screen min-h-[100dvh] bg-slate-950 select-none font-ud text-white flex items-center justify-center overflow-y-auto">
-      {/* アーケード筐体コンテナ（iOS等のセーフエリアに確実に対応） */}
-      <div className="w-full max-w-md sm:max-w-lg app-safe-container">
-        {/* ヘッダー (約10%) */}
+      {/* アーケード筐体コンテナ（スマホは縦積み・PCは2カラムへアダプティブ展開） */}
+      <div className="arcade-shell app-safe-container">
+        {/* ヘッダー */}
         <Header
           mode={mode}
           isPlaying={isPlaying}
@@ -49,30 +49,39 @@ export const App: React.FC = () => {
           onOpenHelp={() => setIsHelpOpen(true)}
         />
 
-        {/* 大型デジタル表示パネル (約18%) */}
-        <ScoreBoard
-          score={score}
-          timeLeft={timeLeft}
-          combo={combo}
-          mode={mode}
-          currentRule={currentRule}
-          isPanicTime={isPanicTime}
-          isPlaying={isPlaying}
-        />
+        {/* メイン領域：PCでは左に盤面、右にスコア＆操作パネルを配置 */}
+        <div className="arcade-grid">
+          {/* 大型デジタル表示パネル */}
+          <div className="arcade-score w-full">
+            <ScoreBoard
+              score={score}
+              timeLeft={timeLeft}
+              combo={combo}
+              mode={mode}
+              currentRule={currentRule}
+              isPanicTime={isPanicTime}
+              isPlaying={isPlaying}
+            />
+          </div>
 
-        {/* メインプレイフィールド: 3×3 穴 (モグラがしっかり飛び出す正方形盤面) */}
-        <PlayField holes={holes} onWhack={whackMole} />
+          {/* メインプレイフィールド: 3×3 穴 (モグラがしっかり飛び出す正方形盤面) */}
+          <div className="arcade-playfield w-full">
+            <PlayField holes={holes} onWhack={whackMole} />
+          </div>
 
-        {/* フッター操作バー (約12%) */}
-        <FooterControls
-          isPlaying={isPlaying}
-          speed={speed}
-          mode={mode}
-          onChangeSpeed={setSpeed}
-          onChangeMode={setMode}
-          onStart={startGame}
-          onStop={stopGame}
-        />
+          {/* フッター操作バー */}
+          <div className="arcade-controls w-full">
+            <FooterControls
+              isPlaying={isPlaying}
+              speed={speed}
+              mode={mode}
+              onChangeSpeed={setSpeed}
+              onChangeMode={setMode}
+              onStart={startGame}
+              onStop={stopGame}
+            />
+          </div>
+        </div>
       </div>
 
       {/* 自動消去ビッグポップアップ（Grace Pause） */}

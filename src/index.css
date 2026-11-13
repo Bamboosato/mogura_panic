@@ -95,6 +95,114 @@ html, body {
   box-sizing: border-box;
 }
 
+/* スマホ・PC アダプティブレイアウト（ガイドライン v1.1 準拠） */
+.arcade-shell {
+  width: 100%;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.arcade-grid {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.playfield-board {
+  width: min(100%, 480px, max(220px, calc(100dvh - 280px)));
+  aspect-ratio: 1;
+}
+
+.playfield-decor {
+  width: min(100%, 480px, max(220px, calc(100dvh - 280px)));
+}
+
+/* タブレット・PC（900px〜）：左右2カラムの横並び配置 */
+@media (min-width: 900px) {
+  .arcade-shell {
+    max-width: min(100%, 1060px);
+    padding-left: max(1.5rem, calc(var(--sal) + 0.75rem));
+    padding-right: max(1.5rem, calc(var(--sar) + 0.75rem));
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .arcade-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(300px, 380px);
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "playfield score"
+      "playfield controls";
+    align-content: center;
+    align-items: center;
+    gap: 2.5rem 2.25rem;
+  }
+
+  .arcade-playfield {
+    grid-area: playfield;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+  }
+
+  .arcade-score {
+    grid-area: score;
+    align-self: end;
+  }
+
+  .arcade-controls {
+    grid-area: controls;
+    align-self: start;
+  }
+
+  .playfield-board {
+    width: min(100%, 540px, max(260px, calc(100dvh - 250px)));
+  }
+
+  .playfield-decor {
+    width: min(100%, 540px, max(260px, calc(100dvh - 250px)));
+  }
+}
+
+/* 低い画面高のPCウィンドウ（高さ700px以下）への適応 */
+@media (min-width: 900px) and (max-height: 700px) {
+  .arcade-shell {
+    gap: 0.5rem;
+    padding-top: max(0.5rem, calc(var(--sat) + 0.25rem));
+    padding-bottom: max(0.5rem, calc(var(--sab) + 0.25rem));
+  }
+
+  .arcade-grid {
+    gap: 1.5rem 1.5rem;
+  }
+
+  .game-decoration {
+    display: none;
+  }
+
+  .playfield-board {
+    width: min(100%, 500px, max(240px, calc(100dvh - 110px)));
+  }
+}
+
+/* 入力デバイス特性に応じた操作フィードバック（ガイドライン 3.3） */
+@media (hover: hover) and (pointer: fine) {
+  .game-interactive:hover {
+    filter: brightness(1.08);
+  }
+}
+
+@media (pointer: coarse) {
+  .game-interactive {
+    min-height: 44px;
+  }
+}
+
 /* ポップアップや打撃時のキーフレーム */
 @keyframes pop-in {
   0% { transform: scale(0.7); opacity: 0; }

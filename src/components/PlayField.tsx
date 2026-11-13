@@ -16,7 +16,7 @@ export const PlayField: React.FC<PlayFieldProps> = ({ holes, onWhack }) => {
       <DioramaSurface />
 
       {/* 🎯 メインの3×3モグラ盤面 */}
-      <div className="relative w-full aspect-square max-w-[480px] grid grid-cols-3 grid-rows-3 gap-2.5 sm:gap-3.5 bg-gradient-to-b from-[#14381e] via-[#0f2e18] to-[#091b10] p-3 sm:p-4 rounded-3xl border-4 border-[#2d5a36] shadow-[0_8px_28px_rgba(0,0,0,0.7)] overflow-hidden shrink-0">
+      <div className="playfield-board relative grid grid-cols-3 grid-rows-3 gap-2.5 sm:gap-3.5 bg-gradient-to-b from-[#14381e] via-[#0f2e18] to-[#091b10] p-3 sm:p-4 rounded-3xl border-4 border-[#2d5a36] shadow-[0_8px_28px_rgba(0,0,0,0.7)] overflow-hidden shrink-0">
         {/* 背景の小さな野原・クローバー装飾（のどかな草原の演出） */}
         <div className="absolute inset-0 pointer-events-none opacity-30">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

@@ -7,7 +7,7 @@ import React from 'react';
  */
 export const DioramaTunnel: React.FC = () => {
   return (
-    <div className="w-full max-w-[480px] h-11 sm:h-14 flex items-start justify-center overflow-hidden pointer-events-none select-none relative px-2 shrink-0">
+    <div className="playfield-decor game-decoration h-11 sm:h-14 flex items-start justify-center overflow-hidden pointer-events-none select-none relative px-2 shrink-0">
       <svg
         viewBox="0 0 460 64"
         className="w-full h-full"
