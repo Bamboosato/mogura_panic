@@ -36,35 +36,44 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
             <div className="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center text-center">
               <span className="text-3xl mb-1">👑</span>
               <span className="font-black text-yellow-300">黄金モグラ</span>
-              <span className="text-slate-300 font-bold">+30点 (素早い)</span>
+              <span className="text-slate-300 font-bold flex flex-wrap items-center justify-center gap-x-1">
+                <span>+30点</span>
+                <span className="whitespace-nowrap">(素早い)</span>
+              </span>
             </div>
 
             <div className="p-3 bg-slate-800/80 rounded-2xl border border-slate-700 flex flex-col items-center text-center">
               <span className="text-3xl mb-1">⛑️</span>
               <span className="font-black text-yellow-400">ヘルメット</span>
-              <span className="text-slate-300 font-bold">2回叩く (+25点)</span>
+              <span className="text-slate-300 font-bold flex flex-wrap items-center justify-center gap-x-1">
+                <span>2回叩く</span>
+                <span className="whitespace-nowrap">(+25点)</span>
+              </span>
             </div>
 
             <div className="p-3 bg-slate-800/80 rounded-2xl border border-red-500/50 bg-red-950/20 flex flex-col items-center text-center">
               <span className="text-3xl mb-1">💣</span>
-              <span className="font-black text-red-400">トゲ爆弾 (叩くな!)</span>
+              <span className="font-black text-red-400 flex flex-wrap items-center justify-center gap-x-1">
+                <span>トゲ爆弾</span>
+                <span className="whitespace-nowrap">(叩くな!)</span>
+              </span>
               <span className="text-red-300 font-bold">-20点 減点</span>
             </div>
           </div>
         </div>
 
         {/* 脳トレモード解説 */}
-        <div className="flex flex-col gap-2 p-3 bg-indigo-950/50 rounded-2xl border border-indigo-500/40">
+        <div className="flex flex-col gap-2 p-3 sm:p-4 bg-indigo-950/50 rounded-2xl border border-indigo-500/40">
           <h3 className="text-lg font-black text-purple-300">② 脳トレ・お題モード</h3>
-          <p className="text-base text-slate-200 leading-snug font-bold">
+          <p className="text-sm sm:text-base text-slate-200 leading-snug font-bold">
             画面上のお題に合うモグラだけを叩こう！
           </p>
-          <ul className="text-base text-slate-200 space-y-1 font-bold pl-2">
+          <ul className="text-sm sm:text-base text-slate-200 space-y-1 font-bold pl-2">
             <li>🎯 <b>数字のお題</b>: 【偶数】【奇数】【5以上】【4以下】など</li>
             <li>🎨 <b>色のお題</b>: 【青色】【黄色】【緑色】【ピンク】のモグラを指定！</li>
           </ul>
-          <p className="text-sm sm:text-base text-yellow-300 font-bold mt-1">
-            ※ルール変更時は、画面中央に特大ポップアップ（約1.5秒間ポーズ）でお知らせします。
+          <p className="text-xs sm:text-sm text-yellow-300 font-bold mt-1 leading-relaxed">
+            ※ルール変更時は、画面中央に特大ポップアップ<span className="inline-block whitespace-nowrap">（約1.5秒間ポーズ）</span>でお知らせします。
           </p>
         </div>
 
